@@ -1,0 +1,49 @@
+@startuml Clifford
+
+interface FileSystem {
+    + delete()
+    + getName()
+    + getSelf()
+}
+
+class Directory implements FileSystem {
+    //FS methods
+    + getChildren()
+    + rmChild()
+    + addChild()
+
+    }
+class File implements FileSystem {
+    - name
+    //FS methods
+    }
+
+interface Command {
+    void run(flags);
+}
+class cd implements Command {
+    void run(flags);
+}
+class ls implements Command {
+    void run(flags);
+}
+class touch implements Command {
+    void run(flags);
+}
+class mkdir implements Command {
+    void run(flags);
+}
+class rm implements Command {
+    void run(flags);
+}
+class pwd implements Command {
+    void run(flags);
+}
+
+
+
+
+
+
+
+@enduml
