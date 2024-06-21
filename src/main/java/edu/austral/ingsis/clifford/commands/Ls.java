@@ -12,7 +12,7 @@ public class Ls implements Command{
     }
 
     @Override
-    public void run(List<String> flags, List<String> args) {
-
+    public String run(List<String> flags, List<String> args) {
+        return "";
     }
 }
