@@ -6,19 +6,14 @@ import edu.austral.ingsis.clifford.CLI;
 import java.util.List;
 
 public class Mkdir implements Command {
-    private final CLI CLI;
+    private final CLI cli;
 
-    public Mkdir (CLI CLI){
-        this.CLI = CLI;
+    public Mkdir (CLI cli){
+        this.cli = cli;
     }
 
     @Override
     public String run(List<String> flags, List<String> args) {
-        String name = args.get(0);
-        Directory newDir = new Directory(name);
-        newDir.setParentDir(CLI.getActualDir());
-        CLI.addChildToDir(newDir);
-
-        return "";
+        return cli.mkdir(args.getFirst(), cli.actualDir);
     }
 }

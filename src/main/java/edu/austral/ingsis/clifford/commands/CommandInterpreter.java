@@ -13,10 +13,10 @@ public class CommandInterpreter {
         return root;
     }
 
-    public String mkdir(String name) {
+    public String mkdir(String name, Directory parentDir) {
         //makes new dir
-        Directory newDir = new Directory(name);
-
+        Directory newDir = new Directory(name, parentDir);
+        return root.addChild(newDir);
     }
 
 }

@@ -2,6 +2,7 @@ package edu.austral.ingsis.clifford;
 
 import edu.austral.ingsis.clifford.commands.*;
 
+import java.util.Arrays;
 import java.util.Map;
 
 public class CLI {
@@ -22,16 +23,24 @@ public class CLI {
         this.actualDir = actualDir;
     }
 
-    public Directory getActualDir() {
-        return actualDir;
+    public String runCommand(String command) {
+        String[] args = command.split(" ");
+        Command commandType = commands.get(args[0]);
+        String[] flags = Arrays.copyOfRange(args, 1, args.length);
+        return "commandType.run "; //TODO
     }
 
-    public void addChildToDir(Directory dir) {
-        actualDir.addChild(dir);
+    //OTHER METHODS
+
+    public String mkdir(String name, Directory parentDir) {
+        Directory newDir = new Directory(name, parentDir);
+        return root.addChild(newDir);
     }
 
-    public void addChild(Directory dir) {
-
+    public String touch(String name) {
+        File newFile = new File(name);
+        return root.addFile(newFile);
     }
+
 
 }
