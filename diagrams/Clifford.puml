@@ -41,11 +41,11 @@ class rm implements Command {
 class pwd implements Command {
     void run(flags);
 }
-class Terminal {
+class Cli {
     + runCommand(Command command)
 }
 
-Command <- Terminal : uses
+Command <- Cli : uses
 
 
 

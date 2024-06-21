@@ -4,9 +4,10 @@ import edu.austral.ingsis.clifford.commands.*;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 
 public class CLI {
-    public final Directory root;
+    public Directory root;
     public final Directory actualDir;
     public final Map<String, Command> commands;
 
@@ -42,6 +43,25 @@ public class CLI {
         return root.addFile(newFile);
     }
 
+    public String changeDir(String path) {
+        if (path.equals("..")) {
+            if (Objects.equals(root.getName(), "/")) {
+                return "Changed to '/' directory";
+            }
+            if (root.getParentDir() != null && root != null) {
+                root = root.getParentDir();
+                return "Changed to '" + root.getName() + "' directory";
+            }
+            return "Error: No parent directory";
+        }
+        String[] pathArray = path.split("/");
+        for (String dir: pathArray) {
+            if (root == null) return "Error: Directory not found";
+            if (root.getChildByName(dir) == null) return "Error: Directory not found";
+            root = root.getChildByName(dir);
+        }
+        return "Changed to '" + pathArray[pathArray.length-1] + "' directory";
+    }
 
 
 

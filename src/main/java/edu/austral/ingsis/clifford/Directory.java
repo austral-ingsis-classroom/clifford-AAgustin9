@@ -47,4 +47,13 @@ public class Directory implements FileSystem {
         children.add(file);
         return "'" + file.getName() + "' created successfully";
     }
+
+    public Directory getChildByName(String name) {
+        for (FileSystem child : children) {
+            if (child.getName().equals(name)) {
+                return (Directory) child;
+            }
+        }
+        return null;
+    }
 }

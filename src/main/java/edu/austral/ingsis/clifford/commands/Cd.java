@@ -13,6 +13,6 @@ public class Cd implements Command{
 
     @Override
     public String run(List<String> flags, List<String> args) {
-        return "";
+        return cli.changeDir(args.getFirst());
     }
 }
