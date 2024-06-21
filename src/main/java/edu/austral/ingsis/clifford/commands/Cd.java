@@ -5,10 +5,10 @@ import edu.austral.ingsis.clifford.CLI;
 import java.util.List;
 
 public class Cd implements Command{
-    private final CLI CLI;
+    private final CLI cli;
 
-    public Cd (CLI CLI){
-        this.CLI = CLI;
+    public Cd (CLI cli){
+        this.cli = cli;
     }
 
     @Override
