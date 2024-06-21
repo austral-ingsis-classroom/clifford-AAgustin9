@@ -65,4 +65,23 @@ public class Directory implements FileSystem {
         return names;
     }
 
+    public String deleteRecursively(String name) {
+        for (FileSystem child : children) {
+            if (child.getName().equals(name) && child instanceof Directory) {
+                children.remove(child);
+                return "'" + name + "' deleted successfully";
+            }
+        }
+        return "Error: Cannot delete Directory";
+    }
+
+    public String delete(String name) {
+        for (FileSystem child : children) {
+            if (child.getName().equals(name)) {
+                children.remove(child);
+                return "'" + name + "' deleted successfully";
+            }
+        }
+        return "Error: File not found";
+    }
 }

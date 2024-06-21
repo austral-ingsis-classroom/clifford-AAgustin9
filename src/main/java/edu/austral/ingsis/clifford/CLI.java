@@ -68,6 +68,11 @@ public class CLI {
         return root.getChildrenNames();
     }
 
-
+    public String delete(String name, String flag) {
+        if (flag.equals("-r")) {
+            return root.deleteRecursively(name);
+        }
+        return root.delete(name);
+    }
 
 }
