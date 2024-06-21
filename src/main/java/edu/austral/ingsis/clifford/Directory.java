@@ -2,6 +2,7 @@ package edu.austral.ingsis.clifford;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Directory implements FileSystem {
 
@@ -65,23 +66,26 @@ public class Directory implements FileSystem {
         return names;
     }
 
-    public String deleteRecursively(String name) {
-        for (FileSystem child : children) {
-            if (child.getName().equals(name) && child instanceof Directory) {
-                children.remove(child);
-                return "'" + name + "' deleted successfully";
+    public String delete(String name, String flag) {
+        if (Objects.equals(flag, "")) return deleteFile(name);
+        if (Objects.equals(flag, "--recursive")) {
+            for (FileSystem child : children) {
+                if (child.getName().equals(name) && child instanceof Directory) {
+                    children.remove(child);
+                    return "'" + name + "' deleted successfully";
+                }
             }
         }
-        return "Error: Cannot delete Directory";
+        return "Error: Cannot remove directory '" + name + "'";
     }
 
-    public String delete(String name) {
+    private String deleteFile(String name) {
         for (FileSystem child : children) {
-            if (child.getName().equals(name)) {
+            if (child.getName().equals(name) && child instanceof File) {
                 children.remove(child);
                 return "'" + name + "' deleted successfully";
             }
         }
-        return "Error: File not found";
+        return "Error: Cannot remove file '" + name + "'";
     }
 }

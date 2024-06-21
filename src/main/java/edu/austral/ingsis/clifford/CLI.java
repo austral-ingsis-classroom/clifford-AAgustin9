@@ -69,10 +69,7 @@ public class CLI {
     }
 
     public String delete(String name, String flag) {
-        if (flag.equals("-r")) {
-            return root.deleteRecursively(name);
-        }
-        return root.delete(name);
+        return root.delete(name, flag);
     }
 
 }
