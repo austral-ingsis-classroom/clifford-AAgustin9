@@ -56,4 +56,13 @@ public class Directory implements FileSystem {
         }
         return null;
     }
+
+    public List<String> getChildrenNames() {
+        List<String> names = new ArrayList<>();
+        for (FileSystem child : children) {
+            names.add(child.getName());
+        }
+        return names;
+    }
+
 }

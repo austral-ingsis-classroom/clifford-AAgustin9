@@ -3,6 +3,7 @@ package edu.austral.ingsis.clifford;
 import edu.austral.ingsis.clifford.commands.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -63,6 +64,9 @@ public class CLI {
         return "Changed to '" + pathArray[pathArray.length-1] + "' directory";
     }
 
+    public List<String> getChildsList() {
+        return root.getChildrenNames();
+    }
 
 
 
