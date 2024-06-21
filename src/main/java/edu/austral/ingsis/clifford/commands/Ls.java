@@ -1,14 +1,14 @@
 package edu.austral.ingsis.clifford.commands;
 
-import edu.austral.ingsis.clifford.Terminal;
+import edu.austral.ingsis.clifford.CLI;
 
 import java.util.List;
 
 public class Ls implements Command{
-    private final Terminal terminal;
+    private final CLI CLI;
 
-    public Ls (Terminal terminal){
-        this.terminal = terminal;
+    public Ls (CLI CLI){
+        this.CLI = CLI;
     }
 
     @Override

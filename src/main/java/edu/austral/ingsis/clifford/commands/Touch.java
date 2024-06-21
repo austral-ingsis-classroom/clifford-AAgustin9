@@ -1,14 +1,14 @@
 package edu.austral.ingsis.clifford.commands;
 
-import edu.austral.ingsis.clifford.Terminal;
+import edu.austral.ingsis.clifford.CLI;
 
 import java.util.List;
 
 public class Touch implements Command {
-    private final Terminal terminal;
+    private final CLI cli;
 
-    public Touch (Terminal terminal){
-        this.terminal = terminal;
+    public Touch (CLI cli){
+        this.cli = cli;
     }
 
     @Override

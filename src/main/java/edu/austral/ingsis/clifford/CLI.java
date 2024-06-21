@@ -4,13 +4,12 @@ import edu.austral.ingsis.clifford.commands.*;
 
 import java.util.Map;
 
-public class Terminal {
+public class CLI {
     public final Directory root;
     public final Directory actualDir;
     public final Map<String, Command> commands;
 
-
-    public Terminal(Directory root, Directory actualDir) {
+    public CLI(Directory root, Directory actualDir) {
         this.commands = Map.of(
                 "cd", new Cd(this),
                 "ls", new Ls(this),
@@ -23,5 +22,16 @@ public class Terminal {
         this.actualDir = actualDir;
     }
 
+    public Directory getActualDir() {
+        return actualDir;
+    }
+
+    public void addChildToDir(Directory dir) {
+        actualDir.addChild(dir);
+    }
+
+    public void addChild(Directory dir) {
+
+    }
 
 }

@@ -1,14 +1,14 @@
 package edu.austral.ingsis.clifford.commands;
 
-import edu.austral.ingsis.clifford.Terminal;
+import edu.austral.ingsis.clifford.CLI;
 
 import java.util.List;
 
 public class Rm implements Command {
-    private final Terminal terminal;
+    private final CLI CLI;
 
-    public Rm (Terminal terminal){
-        this.terminal = terminal;
+    public Rm (CLI CLI){
+        this.CLI = CLI;
     }
 
     @Override

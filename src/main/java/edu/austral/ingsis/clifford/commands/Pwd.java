@@ -1,14 +1,14 @@
 package edu.austral.ingsis.clifford.commands;
 
-import edu.austral.ingsis.clifford.Terminal;
+import edu.austral.ingsis.clifford.CLI;
 
 import java.util.List;
 
 public class Pwd implements Command {
-    private final Terminal terminal;
+    private final CLI CLI;
 
-    public Pwd (Terminal terminal){
-        this.terminal = terminal;
+    public Pwd (CLI CLI){
+        this.CLI = CLI;
     }
 
     @Override
