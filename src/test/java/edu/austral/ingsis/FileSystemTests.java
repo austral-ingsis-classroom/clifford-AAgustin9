@@ -44,10 +44,10 @@ public class FileSystemTests {
             entry("mkdir jetta", "'jetta' directory created"),
             entry("ls", "horace emily jetta"),
             entry("cd emily", "moved to directory 'emily'"),
-            entry("pwd", "/emily"),
+            entry("pwd", " /emily"),
             entry("touch elizabeth.txt", "'elizabeth.txt' file created"),
-            entry("mkdir t-bone", "'t-bone' directory"),
-            entry("ls", "elizabeth t-bone")
+            entry("mkdir t-bone", "'t-bone' directory created"),
+            entry("ls", "elizabeth.txt t-bone")
     ));
   }
 
@@ -59,7 +59,7 @@ public class FileSystemTests {
             entry("mkdir jetta", "'jetta' directory created"),
             entry("cd emily", "moved to directory 'emily'"),
             entry("touch elizabeth.txt", "'elizabeth.txt' file created"),
-            entry("mkdir t-bone", "'t-bone' directory"),
+            entry("mkdir t-bone", "'t-bone' directory created"),
             entry("touch elizabeth.txt", "'elizabeth.txt' file created"),
             entry("ls", "t-bone elizabeth.txt"),
             entry("rm", "cannot remove 't-bone', is a directory"),

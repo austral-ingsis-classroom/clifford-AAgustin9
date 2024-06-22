@@ -46,11 +46,11 @@ public class CLI {
     public String changeDir(String path) {
         if (path.equals("..")) {
             if (Objects.equals(root.getName(), "/")) {
-                return "Changed to '/' directory";
+                return "moved to directory '/'";
             }
             if (root.getParentDir() != null && root != null) {
                 root = root.getParentDir();
-                return "Changed to '" + root.getName() + "' directory";
+                return "moved to directory '" + root.getName() + "'";
             }
             return "Error: No parent directory";
         }
@@ -60,7 +60,7 @@ public class CLI {
             if (root.getChildByName(dir) == null) return "Error: Directory not found";
             root = root.getChildByName(dir);
         }
-        return "Changed to '" + pathArray[pathArray.length-1] + "' directory";
+        return "moved to directory '" + pathArray[pathArray.length-1] + "'";
     }
 
     public List<String> getChildsList() {
@@ -71,4 +71,20 @@ public class CLI {
         return root.delete(name, flag);
     }
 
+    public String getPath() {
+        List<String> dirs = new ArrayList<>();
+        Directory currentDir = root;
+        dirs.add(currentDir.getName());
+        while (currentDir.getParentDir() != null) {
+            currentDir = currentDir.getParentDir();
+            if (!Objects.equals(currentDir.getName(), "/")) {
+                dirs.add(currentDir.getName());
+            }
+        }
+        List<String> invertedDirs = new ArrayList<>();
+        for (int i = dirs.size()-1; i >= 0; i--) {
+            invertedDirs.add(dirs.get(i));
+        }
+        return String.join("/", invertedDirs);
+    }
 }

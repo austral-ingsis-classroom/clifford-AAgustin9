@@ -15,7 +15,7 @@ public class Rm implements Command {
     public String run(List<String> parameters) {
         switch (parameters.size()) {
             case 0:
-                return "Error: No arguments";
+                return "cannot remove '" + cli.actualDir.getName() + "'";
             case 1:
                 return cli.delete(parameters.getFirst(), "");
             case 2:

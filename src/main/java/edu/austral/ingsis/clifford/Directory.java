@@ -51,7 +51,7 @@ public class Directory implements FileSystem {
             }
         }
         children.add(file);
-        return "'" + file.getName() + "' created successfully";
+        return "'" + file.getName() + "' file created";
     }
 
     public Directory getChildByName(String name) {
@@ -77,7 +77,7 @@ public class Directory implements FileSystem {
             for (FileSystem child : children) {
                 if (child.getName().equals(name) && child instanceof Directory) {
                     children.remove(child);
-                    return "'" + name + "' deleted successfully";
+                    return "'" + name + "' removed";
                 }
             }
         }

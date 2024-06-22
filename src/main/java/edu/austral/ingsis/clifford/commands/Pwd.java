@@ -14,13 +14,7 @@ public class Pwd implements Command {
 
     @Override
     public String run(List<String> parameters) {
-        return pwd(cli.actualDir);
+        return cli.getPath();
     }
 
-    private String pwd(Directory currentDir) {
-        if (currentDir.getParentDir() == null) {
-            return currentDir.getName();
-        }
-        return pwd(currentDir.getParentDir()) + "/" + currentDir.getName();
-    }
 }
