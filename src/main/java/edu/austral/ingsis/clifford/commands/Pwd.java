@@ -13,7 +13,7 @@ public class Pwd implements Command {
     }
 
     @Override
-    public String run(List<String> flags, List<String> args) {
+    public String run(List<String> parameters) {
         return pwd(cli.actualDir);
     }
 

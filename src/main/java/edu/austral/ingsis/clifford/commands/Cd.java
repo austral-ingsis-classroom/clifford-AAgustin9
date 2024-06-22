@@ -12,7 +12,7 @@ public class Cd implements Command{
     }
 
     @Override
-    public String run(List<String> flags, List<String> args) {
-        return cli.changeDir(args.getFirst());
+    public String run(List<String> parameters) {
+        return cli.changeDir(parameters.getFirst());
     }
 }

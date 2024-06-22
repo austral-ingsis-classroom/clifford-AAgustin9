@@ -2,17 +2,15 @@ package edu.austral.ingsis.clifford;
 
 import edu.austral.ingsis.clifford.commands.*;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CLI {
     public Directory root;
     public final Directory actualDir;
     public final Map<String, Command> commands;
 
-    public CLI(Directory root, Directory actualDir) {
+    public CLI(Directory root) {
         this.commands = Map.of(
                 "cd", new Cd(this),
                 "ls", new Ls(this),
@@ -22,20 +20,21 @@ public class CLI {
                 "pwd", new Pwd(this)
         );
         this.root = root;
-        this.actualDir = actualDir;
+        this.actualDir = root;
     }
 
-    public String runCommand(String command) {
+    public String executeCommand(String command) {
         String[] args = command.split(" ");
         Command commandType = commands.get(args[0]);
-        String[] flags = Arrays.copyOfRange(args, 1, args.length);
-        return "commandType.run "; //TODO
+        String[] parameters = Arrays.copyOfRange(args, 1, args.length);
+
+        return commandType.run(Arrays.stream(parameters).collect(Collectors.toList()));
     }
 
     //OTHER METHODS
 
     public String mkdir(String name, Directory parentDir) {
-        Directory newDir = new Directory(name, parentDir);
+        Directory newDir = new Directory(name, parentDir, new ArrayList<>());
         return root.addChild(newDir);
     }
 

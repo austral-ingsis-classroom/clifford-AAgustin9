@@ -12,14 +12,14 @@ public class Rm implements Command {
     }
 
     @Override
-    public String run(List<String> flags, List<String> args) {
-        switch (flags.size() + args.size()) {
+    public String run(List<String> parameters) {
+        switch (parameters.size()) {
             case 0:
                 return "Error: No arguments";
             case 1:
-                return cli.delete(flags.getFirst(), "");
+                return cli.delete(parameters.getFirst(), "");
             case 2:
-                return cli.delete(flags.get(1), flags.getFirst());
+                return cli.delete(parameters.get(1), parameters.getFirst());
             default:
                 return "Error: Invalid arguments";
         }

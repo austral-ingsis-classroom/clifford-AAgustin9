@@ -12,7 +12,7 @@ public class Touch implements Command {
     }
 
     @Override
-    public String run(List<String> flags, List<String> args) {
-        return cli.touch(args.getFirst());
+    public String run(List<String> parameters) {
+        return cli.touch(parameters.getFirst());
     }
 }

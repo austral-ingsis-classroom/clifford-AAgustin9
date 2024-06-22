@@ -10,10 +10,15 @@ public class Directory implements FileSystem {
     private final List<FileSystem> children;
     private Directory parentDir;
 
-    public Directory(String name, Directory parentDir) {
+    public Directory(String name) {
         this.name = name;
         children = new ArrayList<>();
+    }
+
+    public Directory(String name, Directory parentDir, List<FileSystem> children) {
+        this.name = name;
         this.parentDir = parentDir;
+        this.children = children;
     }
 
     @Override
@@ -36,7 +41,7 @@ public class Directory implements FileSystem {
             }
         }
         children.add(fileSystem);
-        return "'" + fileSystem.getName() + "' created successfully";
+        return "'" + fileSystem.getName() + "' directory created";
     }
 
     public String addFile(File file) {

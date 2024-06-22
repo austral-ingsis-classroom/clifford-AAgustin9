@@ -13,7 +13,7 @@ public class Mkdir implements Command {
     }
 
     @Override
-    public String run(List<String> flags, List<String> args) {
-        return cli.mkdir(args.getFirst(), cli.actualDir);
+    public String run(List<String> parameters) {
+        return cli.mkdir(parameters.getFirst(), cli.actualDir);
     }
 }

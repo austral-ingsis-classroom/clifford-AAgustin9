@@ -13,12 +13,12 @@ public class Ls implements Command{
     }
 
     @Override
-    public String run(List<String> flags, List<String> args) {
+    public String run(List<String> parameters) {
         List<String> children = cli.getChildsList();
-        if (flags.isEmpty() || args.isEmpty()) {
+        if (parameters.isEmpty()) {
             return String.join(" ", children);
         }
-        String orderType = flags.getFirst();
+        String orderType = parameters.getFirst();
         if (orderType.equals("--ord=desc")) {
             children.sort(Collections.reverseOrder());
         } else if (orderType.equals("--ord=asc")) {
