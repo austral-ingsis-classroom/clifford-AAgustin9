@@ -81,16 +81,16 @@ public class Directory implements FileSystem {
                 }
             }
         }
-        return "Error: Cannot remove directory '" + name + "'";
+        return "cannot remove '" + name + "', is a directory";
     }
 
     private String deleteFile(String name) {
         for (FileSystem child : children) {
             if (child.getName().equals(name) && child instanceof File) {
                 children.remove(child);
-                return "'" + name + "' deleted successfully";
+                return "'" + name + "' removed";
             }
         }
-        return "Error: Cannot remove file '" + name + "'";
+        return "cannot remove '" + name + "'";
     }
 }

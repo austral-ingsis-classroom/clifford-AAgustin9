@@ -52,12 +52,12 @@ public class CLI {
                 root = root.getParentDir();
                 return "moved to directory '" + root.getName() + "'";
             }
-            return "Error: No parent directory";
+            return "moved to directory '/'";
         }
         String[] pathArray = path.split("/");
         for (String dir: pathArray) {
-            if (root == null) return "Error: Directory not found";
-            if (root.getChildByName(dir) == null) return "Error: Directory not found";
+            if (root == null) return "directory not found";
+            if (root.getChildByName(dir) == null) return "'" + dir + "' directory does not exist";
             root = root.getChildByName(dir);
         }
         return "moved to directory '" + pathArray[pathArray.length-1] + "'";
