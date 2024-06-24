@@ -1,18 +1,17 @@
 package edu.austral.ingsis.clifford.commands;
 
 import edu.austral.ingsis.clifford.CLI;
-
 import java.util.List;
 
 public class Touch implements Command {
-    private final CLI cli;
+  private final CLI cli;
 
-    public Touch (CLI cli){
-        this.cli = cli;
-    }
+  public Touch(CLI cli) {
+    this.cli = cli;
+  }
 
-    @Override
-    public String run(List<String> parameters) {
-        return cli.touch(parameters.getFirst());
-    }
+  @Override
+  public String run(List<String> parameters) {
+    return cli.touch(parameters.getFirst());
+  }
 }
