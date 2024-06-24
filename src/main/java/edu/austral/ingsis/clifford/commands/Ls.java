@@ -17,7 +17,7 @@ public class Ls implements Command {
     if (parameters.isEmpty()) {
       return String.join(" ", children);
     }
-    String orderType = parameters.getFirst();
+    String orderType = parameters.get(0);
     if (orderType.equals("--ord=desc")) {
       children.sort(Collections.reverseOrder());
     } else if (orderType.equals("--ord=asc")) {

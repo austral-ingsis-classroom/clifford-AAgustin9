@@ -12,6 +12,6 @@ public class Mkdir implements Command {
 
   @Override
   public String run(List<String> parameters) {
-    return cli.mkdir(parameters.getFirst(), cli.actualDir);
+    return cli.mkdir(parameters.get(0), cli.actualDir);
   }
 }

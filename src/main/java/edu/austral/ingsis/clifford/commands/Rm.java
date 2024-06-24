@@ -16,9 +16,9 @@ public class Rm implements Command {
       case 0:
         return "cannot remove '" + cli.actualDir.getName() + "'";
       case 1:
-        return cli.delete(parameters.getFirst(), "");
+        return cli.delete(parameters.get(0), "");
       case 2:
-        return cli.delete(parameters.get(1), parameters.getFirst());
+        return cli.delete(parameters.get(1), parameters.get(0));
       default:
         return "Error: Invalid arguments";
     }

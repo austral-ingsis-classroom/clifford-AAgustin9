@@ -12,6 +12,6 @@ public class Cd implements Command {
 
   @Override
   public String run(List<String> parameters) {
-    return cli.changeDir(parameters.getFirst());
+    return cli.changeDir(parameters.get(0));
   }
 }

@@ -12,6 +12,6 @@ public class Touch implements Command {
 
   @Override
   public String run(List<String> parameters) {
-    return cli.touch(parameters.getFirst());
+    return cli.touch(parameters.get(0));
   }
 }
